@@ -1,0 +1,14 @@
+@model IEnumerable<BlogProject.Models.Author> 
+@{
+ViewBag.Title = "List"; 
+} 
+
+<h2>List</h2> 
+
+<p>This page should be showing information about all authors</p> 
+ 
+
+@foreach(var author in Model) 
+{ 
+<div><a href="/Author/Show/@author.AuthorId"> author.AuthorFname @author.AuthorLname</a></div> 
+} 
