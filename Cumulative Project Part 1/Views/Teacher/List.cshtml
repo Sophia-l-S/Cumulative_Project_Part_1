@@ -4,6 +4,10 @@ ViewBag.Title = "List";
 } 
 
 <h2>List</h2> 
+<form action="/Tecaher/List" method="GET">
+    <input type="text" name="SearchKey"/>
+    <input type="submit" value="Search"/>
+</form>
 
 <p>This page should be showing information about all Teachers</p> 
  
@@ -12,3 +16,4 @@ ViewBag.Title = "List";
 { 
 <div><a href="/Teacher/Show/@teacher.TeacherId"> teacher.TeacherFname @teacher.TeacherLname</a></div> 
 } 
+
