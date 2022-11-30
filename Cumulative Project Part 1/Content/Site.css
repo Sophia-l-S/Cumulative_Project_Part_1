@@ -21,3 +21,28 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+nav{
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.dellink{
+    color:#dd1111;
+    float: right;
+}
+
+.navlink {
+    /*text-align: right;
+    margin-top: 30px;*/
+    float: right;
+}
+
+#containerlist, #containershow {
+    width:80%;
+    margin: 0 auto;
+    margin-top: 80%;
+}
+
+.listitem {
+    margin: 10px 0;
+}

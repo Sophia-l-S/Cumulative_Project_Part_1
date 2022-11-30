@@ -23,13 +23,24 @@ namespace BlogProject.Controllers
             IEnumerable<Teacher> Teachers = Controller.ListTeachers(SearchKey);
             return View(Teachers);
         }
-        //GET: /Teacher/Show/(id)
-        public ActionResult Show(int id)
+        //GET: /Teacher/DeleteConfirm/(id)
+        public ActionResult DeleteConfirm(int id)
         {
             TeacherDataController Controller = new TeacherDataController();
             Teacher NewTeacher = Controller.FindTeacher(id);
 
             return View(NewTeacher);
         }
+
+
+        //POST : /Tecahet/Delete/{id}
+        public ActionResult Delete(int id)
+        {
+            TeacherDataController Controller = new TeacherDataController();
+            Controller.DeleteTeacher(id);
+            return RedirectToAction("List");
+        }
+
+
     }
 }

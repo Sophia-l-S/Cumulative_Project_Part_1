@@ -16,7 +16,7 @@ namespace BlogProject.Models
         //Only the BlogDbContext class can use them.
         //Change these to match your own local blog database!
         private static string User { get { return "root"; } }
-        private static string Password { get { return "root"; } }
+        private static string Password { get { return ""; } }
         private static string Database { get { return "blog"; } }
         private static string Server { get { return "localhost"; } }
         private static string Port { get { return "3306"; } }

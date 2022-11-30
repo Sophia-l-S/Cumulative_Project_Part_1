@@ -71,7 +71,6 @@ namespace BlogProject.Controllers
             return Authors;
         }
 
-        [HttpGet]
         public Author FindAuthor(int id)
         {
             Author NewAuthor = new Author();
@@ -90,8 +89,6 @@ namespace BlogProject.Controllers
 
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
-
-
             while (ResultSet.Read())
             {
                 //Access Column information by the DB column name as an index
@@ -105,9 +102,10 @@ namespace BlogProject.Controllers
                 NewAuthor.AuthorFname = AuthorFname;
                 NewAuthor.AuthorLname = AuthorLName;
                 NewAuthor.AuthorBio = AuthorBio;
-               
+
             }
             return NewAuthor;
         }
+  
     }
 }

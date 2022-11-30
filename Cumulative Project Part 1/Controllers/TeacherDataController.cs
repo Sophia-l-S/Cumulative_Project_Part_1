@@ -41,6 +41,8 @@ namespace BlogProject.Controllers
             cmd.Parameters.AddWithValue("@key", "%" + SearchKey + "%");
             cmd.Prepare();
 
+            cmd.ExecuteNonQuery();
+
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
 
@@ -121,5 +123,35 @@ namespace BlogProject.Controllers
             }
             return NewTeacher;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <example> POST : /api/TeacherData/DeleteTeacher/3</example>
+        /// 
+        [HttpPost]
+        public void DeleteTeacher(int in)
+        {
+            //Create an instance of a connection
+            MySqlConnection Conn = Blog.AccessDatabase();
+
+            //Open the connection between the web server and database
+            Conn.Open();
+
+            //Establish a new command (query) for our database
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            //SQL QUERY
+            cmd.CommandText = "Select * from Teachers where lower(teacherfname) like lower(@key) or lower(teacherlname) like lower(@key) or lower (concat(teacherfname, ' ', teacherlname)) like lower(@key)";
+
+            cmd.Parameters.AddWithValue("@key", "%" + SearchKey + "%");
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+            Conn.Close(); 
+        }
+
+
+
+
     }
 }
