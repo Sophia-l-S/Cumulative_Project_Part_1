@@ -7,10 +7,10 @@
 
 <div id="containershow">
     <nav stayle="width:40%; margin: 0 auto;">
-        <a class="navlink" href="/Teacher/Show/@model.TeacherId "> Back to Teachers</a> "
+        <a class="navlink" href="/Teacher/Show/@Model.TeacherId "> Back to Teachers</a> "
     </nav>
     <h2>
-        Delete Confirm, are you sure you want to delete? @model.TeacherFname @model.TeacherLname ?</ h2 >
+        Delete Confirm, are you sure you want to delete? @Model.TeacherFname @Model.TeacherLname ?</h2 >
 
         <p>
             this action can not be undone
@@ -20,7 +20,7 @@
 
             @Model.Salary
         </p>
-        <form method="POST" action="/Teacher/Delete/@model.TecaherId" stayle="width:40%; margin: 0 auto";>
+        <form method="POST" action="/Teacher/Delete/@Model.TeacherId" stayle="width:40%; margin: 0 auto";>
                 <button class="delbutton" display:block; margin: 0 auto; color:#dd1111;" href="">Conferm delete</button>
         </form>
 </div> 

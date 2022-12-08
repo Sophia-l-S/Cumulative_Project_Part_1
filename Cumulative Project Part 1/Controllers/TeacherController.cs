@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -24,6 +23,16 @@ namespace BlogProject.Controllers
             IEnumerable<Teacher> Teachers = Controller.ListTeachers(SearchKey);
             return View(Teachers);
         }
+        //GET: /Teacher/Show/(id)
+        public ActionResult Show(int id)
+        {
+            TeacherDataController Controller = new TeacherDataController();
+            Teacher SelectedTeacher = Controller.FindTeacher(id);
+
+            return View(SelectedTeacher);
+        }
+
+
         //GET: /Teacher/DeleteConfirm/(id)
         public ActionResult DeleteConfirm(int id)
         {
@@ -34,7 +43,7 @@ namespace BlogProject.Controllers
         }
 
 
-        //POST : /Tecahet/Delete/{id}
+        //POST : /Teacher/Delete/{id}
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -70,6 +79,49 @@ namespace BlogProject.Controllers
 
 
         }
+
+        //GET : /Teacher/Update/id
+        /// <summary>
+        /// this method is a GET request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Update(int id)
+        {
+            TeacherDataController Controller = new TeacherDataController();
+            Teacher SelectedTeacher = Controller.FindTeacher(id);
+
+            return View(SelectedTeacher);
+        }
+        //POST: /Tecaher/Update/{id}
+        /// <summary>
+        /// This method is a POST request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="TeacherFname"></param>
+        /// <param name="TeacherLname"></param>
+        /// <param name="employeeNumber"></param>
+        /// <param name="HireDate"></param>
+        /// <param name="Salary"></param>
+        /// <returns></returns>
+        /// 
+         [HttpPost]
+        public ActionResult Update(int id, string TeacherFname, string TeacherLname, string employeeNumber, DateTime HireDate, decimal Salary)
+        {
+            Teacher TeacherInfo = new Teacher();
+            TeacherInfo.TeacherFname = TeacherFname;
+            TeacherInfo.TeacherLname = TeacherLname;
+            TeacherInfo.employeeNumber = employeeNumber;
+            TeacherInfo.HireDate = HireDate;
+            TeacherInfo.Salary = Salary;
+
+            TeacherDataController controller = new TeacherDataController();
+            controller.UpdateTeacher(id, TeacherInfo);
+
+
+            return RedirectToAction("Show/" + id);
+        }
+
 
     }
 }

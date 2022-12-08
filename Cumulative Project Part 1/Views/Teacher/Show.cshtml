@@ -8,7 +8,9 @@ ViewBag.Title = "Show";
 <div id="containershow">
     <nav>
         <a class="navlink" href="/teacher/List">Back to Teachers</a>
-        <a class="dellink" href="/Teachers/deleteConform/@model.TeacherId">Delete</a>
+        <a class="dellink" href="/Teachers/deleteConform/@Model.TeacherId">Delete</a>
+        <a class="navlink" href="/Teachers/Update/@Model.TeacherId">Update</a>
+
     </nav>
     <h2> @Model.TeacherFname @Model.TeacherLname</h2>
 

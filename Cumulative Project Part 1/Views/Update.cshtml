@@ -1,0 +1,38 @@
+﻿
+@model BlogProject.Models.Teacher
+
+@{
+    ViewBag.Title = "Update";
+}
+<nav>
+    <a class="navlink" href="/teacher/Show/@Model.TeacherId">Back</a>
+
+</nav>
+
+<h2>Update Teacher</h2>
+<form method="POST" action="/Teacher/Update/@Model.TeacherId">
+    <div>
+        <label> for="TeacherFname">First name:</label>
+        <input type="text" id="TeacherFname" name="TeacherFname" value="@Model.TeacherFname" />
+    </div>
+    <div>
+        <label> for="TeacherLname">Last name:</label>
+        <input type="text" id="TeacherLname" name="TeacherLname" value="@Model.TeacherLname" />
+    </div>
+    <div>
+        <label> for="employeeNumber">employee Number:</label>
+        <input type="text" id="employeeNumber" name="employeeNumber" value="@Model.employeeNumber" />
+    </div>
+    <div>
+        <label> for="HireDate">Hire Date:</label>
+        <input type="text" id="HireDate" name="HireDate" value="@Model.HireDate" />
+    </div>
+    <div>
+        <label> for="Salary">Salary:</label>
+        <input type="text" id="Salary" name="Salary" value="@Model.Salary" />
+    </div>
+    <div>
+        <input type="submit" value="Update Teacher" />
+    </div>
+</form>
+
